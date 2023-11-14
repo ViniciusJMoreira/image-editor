@@ -1,0 +1,19 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+// Font
+$Poppins: 'Poppins', sans-serif;
+
+// Colors
+  $White: #fff;
+// Buttons color
+  $Primary-button-color: #6C757D;
+  $Active-button-color: #5372F0;
+
+// Mixin for display flex
+@mixin flex($display, $align-items, $justify-content, $flex-wrap) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-wrap: $flex-wrap;
+}

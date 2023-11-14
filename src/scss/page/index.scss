@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $Poppins;
+}
+
+body {
+  @include flex(flex, center, center, nowrap);
+  padding: 10px;
+  min-height: 100vh;
+  background: #E3F2FD;
+}
+
+.container {
+  width: 850px;
+  padding: 30px 35px 35px;
+  background: $White;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+  h2 {
+    margin-top: -8px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  // Container > Wrapper
+  .wrapper {
+    display: flex;
+    margin: 20px 0;
+    min-height: 335px;
+
+    // Container > Wrapper > Editor Painel
+    .editor-panel {
+      padding: 15px 20px;
+      width: 280px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    
+      .title {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+    
+      button {
+        outline: none;
+        height: 40px;
+        font-size: 14px;
+        color: $Primary-button-color;
+        background: $White;
+        border-radius: 3px;
+        margin-bottom: 8px;
+        border: 1px solid #aaa;
+      }
+    
+      button:hover {
+        background: #f5f5f5;
+      }
+    
+      // Container > Wrapper > Editor Painel > Filter
+      .filter {
+    
+        button {
+          width: calc(100% / 2 - 4px);
+        }
+    
+        .active {
+          color: $White;
+          border-color: $Active-button-color;
+          background: $Active-button-color;
+        }
+    
+        .slider {
+          margin-top: 12px;
+        }
+    
+        .slider .filter-info {
+          @include flex(flex, normal, space-between, nowrap);
+          color: #464646;
+          font-size: 14px;
+        }
+    
+        .slider input {
+          width: 100%;
+          height: 5px;
+          accent-color: $Active-button-color;
+        }
+      }
+    
+      // Container > Wrapper > Editor Painel > Rotate
+      .rotate {
+        margin-top: 17px;
+      
+        button {
+          @include flex(flex, center, center, nowrap);
+          width: calc(100% / 4 - 3px);
+        }
+      
+        .options button:nth-child(3),
+        .options button:nth-child(4) {
+          font-size: 18px;
+        }
+      
+        .options button:active {
+          color: $White;
+          background: $Active-button-color;
+          border-color: $Active-button-color;
+        }
+      }
+    }
+
+    // Container > Wrapper > preview image
+    .preview-image {
+      @include flex(flex, center, center, nowrap);
+      flex-grow: 1;
+      overflow: hidden;
+      margin-left: 20px;
+      border-radius: 5px;
+    
+      img {
+        max-width: 490px;
+        max-height: 335px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  // Container > Controls
+  .controls {
+
+    button {
+      padding: 11px 20px;
+      font-size: 14px;
+      border-radius: 3px;
+      outline: none;
+      color: $White;
+      cursor: pointer;
+      background: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+  
+    .reset-filters {
+      color: $Primary-button-color;
+      border: 1px solid $Primary-button-color;
+    }
+  
+    .reset-filters:hover {
+      color: $White;
+      background: $Primary-button-color;
+    }
+  
+    .choose-image {
+      background: $Primary-button-color;
+      border: 1px solid $Primary-button-color;
+    }
+  
+    .save-image {
+      margin-left: 5px;
+      background: $Active-button-color;
+      border: 1px solid $Active-button-color;
+    }
+  }
+
+  .wrapper .editor-panel .options,
+  .controls {
+    @include flex(flex, normal, space-between, wrap);
+  }
+}
+
+.disable .editor-panel,
+.disable .controls .reset-filters,
+.disable .controls .save-image {
+  opacity: 0.5;
+  pointer-events: none;
+}
